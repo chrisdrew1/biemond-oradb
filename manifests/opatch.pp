@@ -82,7 +82,8 @@ define oradb::opatch(
             creates   => "${download_dir}/${patch_id}",
             path      => $exec_path,
             logoutput => false,
-            group     => $group
+            user      => $user,
+            group     => $group,
             before    => Db_opatch["${patch_id} ${title}"],
           }
         } else {
